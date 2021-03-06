@@ -18,6 +18,16 @@ services:
     links:
       - rabbitmq
     restart: on-failure
+  db:
+    image: mdillon/postgis:10
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: user
+      POSTGRES_DB: database
+    volumes:
+      - ./database/:/docker-entrypoint-initdb.d/
+    ports:
+      - 15432:5432
 networks:
   app-network:
     driver: bridge
