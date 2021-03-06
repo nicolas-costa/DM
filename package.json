@@ -1,0 +1,23 @@
+{
+  "name": "dm-challenge",
+  "version": "1.0.0",
+  "description": "Delivery Much tech challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolas-costa/DM.git"
+  },
+  "author": "Nícolas Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolas-costa/DM/issues"
+  },
+  "homepage": "https://github.com/nicolas-costa/DM#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sequelize": "^6.5.0"
+  }
+}
