@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.DECIMAL
       },
       quantity: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
