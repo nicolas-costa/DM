@@ -1,4 +1,4 @@
-const productRepository = require("../repositories/productRepository");
+const productRepository = require('../repositories/productRepository');
 
 /**
  * Retorna a lista de produtos com seu preço e quantidade atual em estoque
