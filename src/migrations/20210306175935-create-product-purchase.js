@@ -11,7 +11,7 @@ module.exports = {
       product_id: {
         type: Sequelize.UUID
       },
-      puchase_id: {
+      purchase_id: {
         type: Sequelize.UUID
       },
       createdAt: {

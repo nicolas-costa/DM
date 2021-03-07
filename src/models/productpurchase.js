@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   ProductPurchase.init(
     {
       product_id: DataTypes.UUID,
-      puchase_id: DataTypes.UUID,
+      purchase_id: DataTypes.UUID,
     },
     {
       sequelize,
