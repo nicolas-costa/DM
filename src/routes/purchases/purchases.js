@@ -3,4 +3,7 @@ module.exports = (app) => {
 
     app.route('/orders')
         .get(purchaseController.getAll);
+
+    app.route('/orders/:id')
+        .get(purchaseController.getById);
 };
