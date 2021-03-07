@@ -17,6 +17,13 @@ exports.getAll = async (req, res) => {
   }
 };
 
+/**
+ * Retorna um pedido e seus produtos associados de acordo com o id especificado
+ *
+ * @param req
+ * @param res
+ * @returns {Promise<void>}
+ */
 exports.getById = async (req, res) => {
   try {
     const purchase = await purchaseRepository.getById(req);
@@ -32,5 +39,23 @@ exports.getById = async (req, res) => {
     res.status(500)
         .send(e)
   }
+};
 
-}
+/**
+ * Cria um novo pedido com os produtos especificados
+ *
+ * @param req
+ * @param res
+ * @returns {Promise<void>}
+ */
+exports.create = async (req, res) => {
+  try {
+    const purchase = await purchaseRepository.create(req);
+
+    res.status(201)
+        .send(purchase)
+  } catch (e) {
+    res.status(e.message === 'Product unavailable' ? 400 : 500)
+        .send(e)
+  }
+};
