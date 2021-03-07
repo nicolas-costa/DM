@@ -87,7 +87,7 @@ exports.create = async (req) => {
       body: { products = [] },
     } = req;
 
-    const purchase = await Purchase.create();
+    const purchase = await Purchase.create({}, { transaction });
 
     for (const product of products) {
       const { name = '', quantity: quantityToOrder = 0 } = product;
@@ -108,12 +108,12 @@ exports.create = async (req) => {
           await ProductPurchase.create({
             product_id: productToOrder.dataValues.id,
             purchase_id: purchase.dataValues.id,
-          });
+          }, { transaction });
         }
 
         await productToOrder.update({
           quantity: productToOrder.quantity - quantityToOrder,
-        });
+        }, { transaction });
       }
     }
 
