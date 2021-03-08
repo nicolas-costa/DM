@@ -8,12 +8,12 @@ const jsonParser = bodyParser.json();
 
 app.use(jsonParser);
 
-
 consign({ verbose: false }, { cwd: "src" })
   .include("./src/models/index.js")
   .then("./src/repositories/")
   .then("./src/controllers/")
   .then("./src/routes/")
+  .then("./src/workers/")
   .into(app);
 
 app.listen(3000, () => {
