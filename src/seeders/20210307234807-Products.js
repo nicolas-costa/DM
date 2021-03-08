@@ -17,20 +17,24 @@ module.exports = {
      */
 
     const file = await fs.readFile(path.join(__dirname, "/../../products.csv"));
-    const csvRows = parse(file, {
-      columns: true,
-      skip_empty_lines: true,
-    }).map((row) => {
-      return {
-        name: row.name,
-        price: row.price,
-        quantity: row.quantity,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      };
-    });
 
-    return await queryInterface.bulkInsert("Products", csvRows, {});
+    if(file) {
+      const csvRows = parse(file, {
+        columns: true,
+        skip_empty_lines: true,
+      }).map((row) => {
+        return {
+          name: row.name,
+          price: row.price,
+          quantity: row.quantity,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        };
+      });
+
+      return await queryInterface.bulkInsert("Products", csvRows, {});
+    }
+    return null;
   },
 
   down: async (queryInterface, Sequelize) => {
