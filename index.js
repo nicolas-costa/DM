@@ -3,7 +3,9 @@ const express = require("express");
 const consign = require("consign");
 const bodyParser = require('body-parser');
 const app = express();
-require('dotenv').config();
+require('dotenv').config({
+    path: process.env.NODE_ENV === "test" ? ".env.testing" : ".env"
+});
 
 const jsonParser = bodyParser.json();
 
@@ -19,6 +21,6 @@ consign({ verbose: false }, { cwd: "src" })
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-  console.log("Running on port:", port);
-});
+app.listen(port, () => {});
+
+module.exports = app;
