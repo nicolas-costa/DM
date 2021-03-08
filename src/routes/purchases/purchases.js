@@ -3,10 +3,10 @@ const validators = require("../validators/purchases/purchases");
 module.exports = (app) => {
     const purchaseController = app.src.controllers.purchaseController;
 
-    app.route('/orders')
+    app.route('/api/orders')
         .get(purchaseController.getAll)
         .post(validators.validatePurchase, purchaseController.create);
 
-    app.route('/orders/:id')
+    app.route('/api/orders/:id')
         .get(purchaseController.getById);
 };
