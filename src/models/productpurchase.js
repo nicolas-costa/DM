@@ -13,8 +13,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   ProductPurchase.init(
     {
-      product_id: DataTypes.UUID,
-      purchase_id: DataTypes.UUID,
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER
+      },
+      product_id: DataTypes.INTEGER,
+      purchase_id: DataTypes.INTEGER,
     },
     {
       sequelize,
