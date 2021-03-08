@@ -3,6 +3,7 @@ const express = require("express");
 const consign = require("consign");
 const bodyParser = require('body-parser');
 const app = express();
+require('dotenv').config();
 
 const jsonParser = bodyParser.json();
 
@@ -16,6 +17,8 @@ consign({ verbose: false }, { cwd: "src" })
   .then("./src/workers/")
   .into(app);
 
-app.listen(3000, () => {
-  console.log("Running");
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log("Running on port:", port);
 });
