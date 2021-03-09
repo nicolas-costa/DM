@@ -38,13 +38,15 @@ npx sequelize-cli db:migrate
 
 Rode os seeders (certifique-se de que o arquivo products.csv está na raiz do projeto, ele será importado no seeder):
 ```
- sequelize-cli db:seed
+npx sequelize-cli db:seed:all
 ```
 
 Rode o script para iniciar o servidor:
 ```
-npm run start
+npm run start 
 ```
+
+Após isso, o servidor deverá estar rodando no host:porta especificados no .env.
 
 ## Endpoints
 
