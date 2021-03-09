@@ -16,7 +16,7 @@ consign({ verbose: false }, { cwd: "src" })
   .then("./src/repositories/")
   .then("./src/controllers/")
   .then("./src/routes/")
-  //.then("./src/workers/")
+  .then("./src/workers/")
   .into(app);
 
 const port = process.env.PORT || 3000;
